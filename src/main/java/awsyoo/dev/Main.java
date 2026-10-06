@@ -9,11 +9,10 @@ public class Main {
         Task task1 = context.getBean(Task.class);
         Task task2 = context.getBean(Task.class);
 
-        TaskManager taskManager = context.getBean(TaskManager.class);
+        var props = context.getBean(TaskProperties.class);
 
-        taskManager.printTask();
-
-        TaskExecutor taskExecutor = context.getBean(TaskExecutor.class);
-        taskExecutor.executeTask();
+        System.out.println(props);
+        
+        context.close();
     }
 }

@@ -1,5 +1,7 @@
 package awsyoo.dev;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -13,5 +15,15 @@ public class TaskManager {
 
     public void printTask() {
         System.out.println("Current task: " + task.toString());
+    }
+
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("post construct:" + this.getClass());
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        System.out.println("pre destroy:" + this.getClass());
     }
 }
