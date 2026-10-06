@@ -1,5 +1,6 @@
 package awsyoo.dev;
 
+import awsyoo.dev.aop.Loggable;
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
@@ -13,17 +14,20 @@ public class TaskManager {
         this.task = task;
     }
 
-    public void printTask() {
+    @Loggable(value = "ERROR", count = 3)
+    public Long printTask() {
         System.out.println("Current task: " + task.toString());
+        
+        return task.getDuration();
     }
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("post construct:" + this.getClass());
+//        System.out.println("post construct:" + this.getClass());
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("pre destroy:" + this.getClass());
+//        System.out.println("pre destroy:" + this.getClass());
     }
 }

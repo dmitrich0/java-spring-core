@@ -15,19 +15,19 @@ public class Task {
             @Value("${task.name}") String name,
             @Value("${task.duration}") Long duration
     ) {
-        System.out.println("constructor");
+//        System.out.println("constructor");
         this.name = name;
         this.duration = duration;
     }
 
     @PostConstruct
     public void postConstruct() {
-        System.out.println("post construct");
+//        System.out.println("post construct");
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("pre destroy");
+//        System.out.println("pre destroy");
     }
 
     public Long getDuration() {
